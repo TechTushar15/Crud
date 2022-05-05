@@ -1,0 +1,47 @@
+<h1 mat-dialog-title>Add User Form</h1>
+<div mat-dialog-content>
+    <!-- User Creation Form -->
+    <form [formGroup]="userForm">
+
+        <!-- Name Field -->
+        <mat-form-field appearance="outline">
+            <mat-label>Enter Name</mat-label>
+            <input formControlName="name" matInput>
+        </mat-form-field>
+        <!-- Email Field -->
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput placeholder="eg-abc@gmail.com">
+        </mat-form-field>
+
+
+        <!-- Status dropdown -->
+        <mat-form-field appearance="outline">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status" placeholder="">
+
+                <mat-option value="Active">Active</mat-option>
+                <mat-option value="Inactive">Inactive</mat-option>
+
+            </mat-select>
+
+        </mat-form-field>
+
+        <!-- Gender Checkbox -->
+        <label for=""></label>
+        <h2>Select Gender</h2>
+        <mat-radio-group formControlName="gender" class="example-radio-group  ">
+            <mat-radio-button class="example-radio-button" *ngFor="let gender of genderList" [value]="gender">
+                {{gender}}
+
+            </mat-radio-button>
+        </mat-radio-group>
+    </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close
+    </button>
+    <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addUser()">Save
+
+    </button>
+</div>
